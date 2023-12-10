@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link rel="stylesheet" href="login.js">
+
+</head>
+
+<body>
+
+    <div class="kapsayan">
+        <div class="kapsayici">
+            <form action="">
+                <h1 class="bas">Sıng In</h1>
+                <div class="inputlar">
+                    <input id="kullaniciAdi" type="text" placeholder="Email or phone number" required>
+
+                </div>
+                <div class="inputlar">
+                    <input id="parola" type="password" placeholder="Password" required>
+
+                </div>
+
+                <button onclick="girisOnay()" type="submit" class="btn">Sing İn</button>
+                <div class="Kaydol">
+
+                </div>
+                <div class="unutma">
+                    <label><input type="checkbox">Remember Me</label>
+                    <a href="#">Şifremi Unuttum</a>
+
+                </div>
+         
+            </form>
+        </div>
+        <script>
+            var kullanicilar = [{ kullaniciAdi: "Admin", parola: "admin123" },
+            { kullaniciAdi: "Diyar", parola: "Diyar123" },
+            { kullaniciAdi: "admin", parola: "ito123" }];
+            var girilenKullaniciadi;
+            var girilenparola;
+            var y;
+            function Kontrol() {
+                girilenKullaniciadi = document.getElementById("kullaniciAdi").value;
+                girilenparola = document.getElementById("parola").value;
+                for (y of kullanicilar) {
+                    if ((y.kullaniciAdi == girilenKullaniciadi) && (y.parola == girilenparola)) {
+                        return true;
+                    }
+                }
+            }
+
+            function girisOnay() {
+                Kontrol();
+                if (Kontrol()) {
+                    window.open("https://www.w3schools.com/", "_blank");
+                }
+                else {
+                    alert("Yanlıs Kullanıcı Adı veya Parola Tekrar Dene...")
+                }
+            }
+        </script>
+
+
+    </div>
